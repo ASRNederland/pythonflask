@@ -3,7 +3,17 @@ FROM python:alpine
 
 COPY src/requirements.txt /src/
 
-RUN pip install -r /src/requirements.txt
+RUN apk add --virtual .install_dependencies_paramiko \
+    gcc \
+    musl-dev \
+    python-dev \
+    libffi-dev \
+    openssl-dev \
+    build-base \
+    py-pip \
+&&  pip install -r /src/requirements.txt \
+&&  apk del .install_dependencies_paramiko
+
 
 COPY src/app.py /src/
 
