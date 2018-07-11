@@ -4,13 +4,10 @@ import requests
 
 app = Flask(__name__)
 
-@app.route("/api/rest")
+@app.route("/")
 def get_helloworld():
-	url = 'http://dummyservice:5000/'
-	r = requests.get(url)
-	result = r.text
+	result = "Hello world! This is a Python app."
 	return result
-
 
 if __name__ == "__main__":
     app.run(debug = True, host = '0.0.0.0')
