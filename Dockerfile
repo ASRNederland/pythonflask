@@ -1,7 +1,7 @@
 # python:alpine is 3.{latest}
 FROM python:alpine 
 
-RUN pip install flask
+RUN pip install flask &&  pip install requests
 
 COPY src /src/
 

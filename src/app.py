@@ -1,13 +1,13 @@
 from flask import Flask
-from flask import request
-from flask import jsonify
-
+import requests
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/api/rest")
 def get_helloworld():
-	result = "Hello world! This is a Python app."
+	url = 'http://dummyservice:5000/'
+	r = requests.get(url)
+	result = r.text
 	return result
 
 
