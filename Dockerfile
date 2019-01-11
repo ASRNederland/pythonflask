@@ -11,6 +11,7 @@ RUN apk add --virtual .install_dependencies_paramiko \
     openssl-dev \
     build-base \
     py-pip \
+    libssl1.0 \
 &&  pip install -r /src/requirements.txt \
 &&  apk del .install_dependencies_paramiko
 
